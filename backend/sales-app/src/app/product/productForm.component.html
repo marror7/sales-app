@@ -1,0 +1,33 @@
+<div class="bg-dark text-white">
+  <div class="card-header">{{title}}</div>
+  <div class="card-body"></div>
+  <form class="center">
+    <div class="form-group row center">
+      <label for="description" class="col-form-label col-sm-2">Description</label>
+      <div class="col-sm-6 my-2">
+        <input type="text" class="form-control" [(ngModel)]="product.description" name="description" required="true">
+      </div>
+    </div>
+    <div class="form-group row center">
+      <label for="price" class="col-form-label col-sm-2">Price</label>
+      <div class="col-sm-6 my-2">
+        <input type="text" class="form-control" [(ngModel)]="product.price" name="price" required="true">
+      </div>
+    </div>
+    <div class="form-group row center">
+      <label for="weight" class="col-form-label col-sm-2">Weight</label>
+      <div class="col-sm-6 my-2">
+        <input type="text" class="form-control" [(ngModel)]="product.weight" name="weight" required="true">
+      </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary my-2" role="button" (click)='create()' *ngIf="!product.id else elseBlock">Add</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary my-2" role="button" (click)='update()'>Edit</button>
+          </ng-template>
+        </div>
+      </div>
+
+  </form>
+</div>

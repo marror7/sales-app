@@ -1,0 +1,27 @@
+<div class="card border-primary mb-3">
+  <div class="card-body text-primary">
+    <h5 class="card-title">Products</h5>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Weight</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.weight }}</td>
+          <td>
+           <button type="button" name="edit" [routerLink]="['/product/form', product.id]" class="btn btn-primary btn-sm"><span class="bi bi-pencil"></span></button>
+           <button type="button" name="delete" (click)='delete(product)' class="btn btn-danger btn-sm"><span class="bi bi-trash"></span></button>
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

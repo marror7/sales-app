@@ -1,0 +1,28 @@
+<div class="card border-primary mb-3">
+  <div class="card-body text-primary">
+    <h5 class="card-title">Orders</h5>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Created Date</th>
+          <th>Payment Type</th>
+          <th>Customer</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.number }}</td>
+          <td>{{ order.createdDate }}</td>
+          <td>{{ order.paymentType }}</td>
+          <td>
+           <button type="button" name="edit" [routerLink]="['/order/form', order.id]" class="btn btn-primary btn-sm"><span class="bi bi-pencil"></span></button>
+           <button type="button" name="delete" (click)='delete(order)' class="btn btn-danger btn-sm"><span class="bi bi-trash"></span></button>
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
